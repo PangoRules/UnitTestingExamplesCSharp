@@ -69,6 +69,7 @@
     <Compile Include="FundamentalsTests\ReservationTests.cs" />
     <Compile Include="MockingTests\BookingHelperTests.cs" />
     <Compile Include="MockingTests\EmployeeControllerTests.cs" />
+    <Compile Include="MockingTests\HousekeeperServiceTests.cs" />
     <Compile Include="MockingTests\InstallerHelperTests.cs" />
     <Compile Include="MockingTests\OrderServiceTests.cs" />
     <Compile Include="MockingTests\ProductTests.cs" />
