@@ -1,17 +1,23 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
 namespace TestNinja.Mocking
 {
     public class InstallerHelper
     {
         private string _setupDestinationFile;
+        private IFileDownloader _fileDownloader;
+
+        public InstallerHelper(IFileDownloader fileDownloader)
+        {
+            _fileDownloader = fileDownloader;
+        }
 
         public bool DownloadInstaller(string customerName, string installerName)
         {
-            var client = new WebClient();
             try
             {
-                client.DownloadFile(
+                _fileDownloader.DownloadFile(
                     string.Format("http://example.com/{0}/{1}",
                         customerName,
                         installerName),
@@ -19,10 +25,12 @@ namespace TestNinja.Mocking
 
                 return true;
             }
-            catch (WebException)
+            catch(WebException e)
             {
-                return false; 
+                return false;
             }
         }
+
+        
     }
 }
